@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Results - JEE College Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Hero Header -->
+  <header class="hero small">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="animate-fade">Eligible Colleges for Rank {{ rank }}</h1>
+      <p class="animate-fade delay-1">Closest 20 IIT & NIT options around your rank</p>
+    </div>
+  </header>
+
+  <!-- Results Section -->
+  <main class="results-container">
+
+    {% if colleges %}
+    <!-- Filter & Sort Controls -->
+    <div class="filter-controls animate-slide">
+      <div class="input-group">
+        <select id="sort-by">
+          <option value="closing_rank">Sort by Closing Rank</option>
+          <option value="opening_rank">Sort by Opening Rank</option>
+        </select>
+        <label>Sort</label>
+      </div>
+
+      <div class="input-group">
+        <select id="filter-type">
+          <option value="all">All Institutes</option>
+          <option value="IIT">Only IIT</option>
+          <option value="NIT">Only NIT</option>
+        </select>
+        <label>Filter</label>
+      </div>
+    </div>
+
+    <!-- Results Table -->
+    <div class="table-wrapper animate-fade delay-2">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Institute Type</th>
+            <th>Institute</th>
+            <th>Program</th>
+            <th>Opening Rank</th>
+            <th>Closing Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for college in colleges %}
+          <tr class="
+            {% if college.closing_rank == rank %} exact-rank
+            {% elif college.rank_diff < 0 %} better-rank
+            {% else %} worse-rank
+            {% endif %}
+          ">
+            <td>{{ college.institute_type }}</td>
+            <td>{{ college.institute_short }}</td>
+            <td>{{ college.program_name }}</td>
+            <td>{{ college.opening_rank }}</td>
+            <td>{{ college.closing_rank }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% else %}
+      <p class="no-results animate-fade">No eligible colleges found for your inputs.</p>
+    {% endif %}
+
+    <!-- Back Button -->
+    <a href="/" class="btn-secondary">Try Again</a>
+  </main>
+
+  <footer>
+    <p>© 2025 JEE College Predictor | IIT & NIT Admissions Guide</p>
+  </footer>
+</body>
+</html>

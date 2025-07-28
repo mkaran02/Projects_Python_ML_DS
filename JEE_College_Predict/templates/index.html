@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEE College Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="animate-fade">JEE College Predictor</h1>
+      <p class="animate-fade delay-1">
+        Predict your chances for <strong>IIT</strong> and <strong>NIT</strong> admissions
+        using advanced machine learning on historical cutoff data.
+      </p>
+      <a href="#form-section" class="btn-cta animate-fade delay-2">Start Prediction</a>
+    </div>
+  </header>
+
+  <!-- Input Form Section -->
+  <main id="form-section" class="form-section">
+    <div class="form-card animate-slide">
+      <h2>Check Your Eligible Colleges</h2>
+      <form action="/predict" method="POST" class="modern-form">
+
+        <!-- Rank Input -->
+        <div class="input-group">
+          <input type="number" name="rank" id="rank" min="1" required placeholder=" ">
+          <label for="rank">Your JEE Rank</label>
+        </div>
+
+        <!-- Category Select -->
+        <div class="input-group">
+          <select name="category" id="category" required>
+            {% for cat in categories %}
+              <option value="{{ cat }}">{{ cat }}</option>
+            {% endfor %}
+          </select>
+          <label for="category">Category</label>
+        </div>
+
+        <!-- Quota Select -->
+        <div class="input-group">
+          <select name="quota" id="quota" required>
+            {% for q in quotas %}
+              <option value="{{ q }}">{{ q }}</option>
+            {% endfor %}
+          </select>
+          <label for="quota">Quota</label>
+        </div>
+
+        <!-- Pool Select -->
+        <div class="input-group">
+          <select name="pool" id="pool" required>
+            {% for p in pools %}
+              <option value="{{ p }}">{{ p }}</option>
+            {% endfor %}
+          </select>
+          <label for="pool">Pool</label>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-primary gradient-btn">Predict Colleges</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- About Section -->
+  <section class="about-section animate-fade delay-3">
+    <h3>About This Predictor</h3>
+    <p>
+      This tool suggests the closest 20 IIT and NIT colleges around your JEE rank
+      including ambitious, match, and safe options based on previous year counseling data.
+    </p>
+    <p>
+      <strong>Disclaimer:</strong> Predictions are for guidance only. Always verify eligibility via official sources.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 JEE College Predictor | Powered by Machine Learning</p>
+  </footer>
+</body>
+</html>
