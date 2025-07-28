@@ -91,21 +91,21 @@ jee_college_predictor/
 
 ## 🏗️ Setup & Installation
 
-### **1. Clone Repository**
-```bash
-git clone https://github.com/your-username/JEE_College_Predictor.git
+1. Clone Repository**
+git clone [https://github.com/your-username/JEE_College_Predictor](https://github.com/mkaran02/Projects_Python_ML_DS/edit/main/JEE_College_Predict).git
 cd JEE_College_Predictor
-2. Create Virtual Environment (Optional but Recommended)
+
+3. Create Virtual Environment (Optional but Recommended)
 python -m venv venv
 venv\Scripts\activate   # Windows
 source venv/bin/activate # Linux/Mac
 
-3. Install Dependencies
+4. Install Dependencies
 pip install -r requirements.txt
 
-4. Add Data
+5. Add Data
 Place your data.csv inside the data/ folder.
 
-5. Run the App
+6. Run the App
 python app.py
 Open http://127.0.0.1:5000 in your browser.
