@@ -88,7 +88,6 @@ jee_college_predictor/
 │-- /templates # HTML templates (index, results)
 │-- /static # CSS, images
 
-
 ## 🏗️ Setup & Installation
 
 1. Clone Repository**
