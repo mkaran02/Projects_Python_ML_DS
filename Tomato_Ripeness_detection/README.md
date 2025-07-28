@@ -14,6 +14,17 @@ Built with **Scikit-learn** (Logistic Regression) and deployed via **Streamlit**
 
 ---
 
+## 🖼️ Screenshots
+
+### **Homepage UI**
+<img width="948" height="358" alt="image" src="https://github.com/user-attachments/assets/d125f6d9-312d-4ae0-bb26-6bdc485de71c" />
+
+
+### **Prediction Output**
+<img width="530" height="515" alt="image" src="https://github.com/user-attachments/assets/81680275-610f-4ce8-ba78-d3ca2a3757ba" />
+
+
+
 ## 🛠 Tech Stack
 
 - **Python 3**
